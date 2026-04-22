@@ -82,6 +82,17 @@ body {
   color: var(--fg-muted);
 }
 
+.tagline a {
+  color: var(--fg);
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-underline-offset: 2px;
+}
+
+.tagline a:hover {
+  text-decoration-color: var(--accent);
+}
+
 .controls {
   display: flex;
   gap: 24px;
