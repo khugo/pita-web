@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pita Web — paste to Slack markdown</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="header">
+        <h1>Pita Web</h1>
+        <p class="tagline">
+          Paste from Notion or Google Docs, get Slack-ready markdown.
+        </p>
+      </header>
+
+      <section class="controls">
+        <div class="control-group">
+          <span class="control-label">Source</span>
+          <fieldset class="segmented">
+            <legend class="visually-hidden">Source provider</legend>
+            <label>
+              <input type="radio" name="provider" value="auto" checked />
+              <span>Auto</span>
+            </label>
+            <label>
+              <input type="radio" name="provider" value="notion" />
+              <span>Notion</span>
+            </label>
+            <label>
+              <input type="radio" name="provider" value="google-docs" />
+              <span>Google Docs</span>
+            </label>
+          </fieldset>
+          <span id="detected-badge" class="badge" hidden></span>
+        </div>
+
+        <div class="control-group">
+          <span class="control-label">Format</span>
+          <fieldset class="segmented" id="format-group">
+            <legend class="visually-hidden">Output format</legend>
+            <label>
+              <input type="radio" name="format" value="rich" checked />
+              <span>Slack rich text</span>
+            </label>
+            <label>
+              <input type="radio" name="format" value="markdown" />
+              <span>Markdown</span>
+            </label>
+          </fieldset>
+        </div>
+      </section>
+
+      <section class="panes" id="panes">
+        <div class="pane">
+          <div class="pane-header">
+            <h2>Input</h2>
+            <div class="pane-actions">
+              <button id="clear" type="button" class="ghost">Clear</button>
+              <button id="copy" type="button" class="primary" disabled>Convert &amp; copy</button>
+            </div>
+          </div>
+          <div
+            id="input"
+            class="editor"
+            contenteditable="true"
+            spellcheck="false"
+            role="textbox"
+            aria-label="Paste rich text here"
+            data-placeholder="Paste rich text from Notion or Google Docs (Cmd/Ctrl+V)…"
+          ></div>
+        </div>
+
+        <div class="pane" id="output-pane">
+          <div class="pane-header">
+            <h2>Slack markdown</h2>
+          </div>
+          <pre id="output" class="output" aria-live="polite"></pre>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <small>
+          Conversion logic vendored from
+          <a href="https://github.com/ktym4a/pita" target="_blank" rel="noreferrer">pita</a>.
+          Runs entirely in your browser.
+        </small>
+      </footer>
+    </main>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "pita-web",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Static webpage that converts pasted Notion / Google Docs content to Slack markdown.",
+  "packageManager": "pnpm@10.33.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "jsdom": "^29.0.2",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.9",
+    "vite-plugin-singlefile": "^2.3.3",
+    "vitest": "^4.1.4"
+  }
+}
